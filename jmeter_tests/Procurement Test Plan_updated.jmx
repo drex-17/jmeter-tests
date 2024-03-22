@@ -871,7 +871,7 @@
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
             <hashTree/>
-            <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
               <boolProp name="displayJMeterProperties">false</boolProp>
               <boolProp name="displayJMeterVariables">true</boolProp>
               <boolProp name="displaySamplerProperties">true</boolProp>
@@ -976,7 +976,7 @@ if (requisitionId != null) {
               <stringProp name="scriptLanguage">java</stringProp>
             </JSR223PostProcessor>
             <hashTree/>
-            <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
               <boolProp name="displayJMeterProperties">true</boolProp>
               <boolProp name="displayJMeterVariables">true</boolProp>
               <boolProp name="displaySamplerProperties">true</boolProp>
@@ -1357,7 +1357,7 @@ if (requisitionId != null) {
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="success_counter" enabled="true">
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="success_counter" enabled="false">
           <stringProp name="CounterConfig.start">0</stringProp>
           <stringProp name="CounterConfig.end">999999</stringProp>
           <stringProp name="CounterConfig.incr">1</stringProp>
@@ -1366,7 +1366,7 @@ if (requisitionId != null) {
           <boolProp name="CounterConfig.per_user">false</boolProp>
         </CounterConfig>
         <hashTree/>
-        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="false">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
