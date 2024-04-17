@@ -1006,9 +1006,9 @@
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Upload Image" enabled="true">
             <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
               <collectionProp name="HTTPFileArgs.files">
-                <elementProp name="nationality.png" elementType="HTTPFileArg">
+                <elementProp name="summary.png" elementType="HTTPFileArg">
                   <stringProp name="File.mimetype">image/png</stringProp>
-                  <stringProp name="File.path">nationality.png</stringProp>
+                  <stringProp name="File.path">summary.png</stringProp>
                   <stringProp name="File.paramname">image</stringProp>
                 </elementProp>
               </collectionProp>
