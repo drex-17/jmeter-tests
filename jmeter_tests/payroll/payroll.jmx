@@ -1,0 +1,1385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PAYROLL TEST" enabled="true">
+      <stringProp name="TestPlan.comments">This test plan was created by the BlazeMeter converter v.3.1.23. Please contact support@blazemeter.com for further support.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <stringProp name="filename">token.csv</stringProp>
+        <stringProp name="fileEncoding">UTF-8</stringProp>
+        <stringProp name="variableNames">token</stringProp>
+        <boolProp name="ignoreFirstLine">true</boolProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="BASE_URL_1" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL_1</stringProp>
+            <stringProp name="Argument.value">payroll-dev-api.amalitech-dev.net</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="AUTH_TOKEN" elementType="Argument">
+            <stringProp name="Argument.name">AUTH_TOKEN</stringProp>
+            <stringProp name="Argument.value">eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbIk1BTkFHRVIiLCJBQ0NPVU5UQU5UIiwiU1VQRVJfQURNSU4iLCJTRU5JT1JfQUNDT1VOVEFOVCJdLCJwcmV2VXJsIjoiaHR0cHM6Ly9hcm1zZW50LXRlc3QuYW1hbGl0ZWNoLWRldi5uZXQiLCJuYW1lIjoiUmFwaGFlbCBLYWJ1dGV5IiwiZW1haWwiOiJyYXBoYWVsLm9jYW5zZXlAYW1hbGl0ZWNoLm9yZyIsInRva2VuIjoiYnZKVEx3c3hWdWZCSGVQTHZ6QmFOUmJ4WURFRFB6bExJSkhwdFdzTkNpcHpmT2VJcUpUWkxTeEpsaFdsd0lRdGxYTnhveGZLVHhLZmdERGYiLCJpYXQiOjE3MDYwMTkxODQsImV4cCI6MTcwNjEwNTU4NH0.oXW54HQgE6OLGD-HQxsNzejwX-V3SFXNRzV7kqKFM3QeEs5A7jLFgs4hiwgItfNXnGpIyq5R-nMBhVnK6oIq5w </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="GRAPH_SERVER" elementType="Argument">
+            <stringProp name="Argument.name">GRAPH_SERVER</stringProp>
+            <stringProp name="Argument.value">payroll-dev-api.amalitech-dev.net/api/v1/graphql</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="User-Agent" elementType="Header">
+            <stringProp name="Header.name">User-Agent</stringProp>
+            <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</stringProp>
+          </elementProp>
+          <elementProp name="Sec-Fetch-Dest" elementType="Header">
+            <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+            <stringProp name="Header.value">empty</stringProp>
+          </elementProp>
+          <elementProp name="Sec-Fetch-Site" elementType="Header">
+            <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+            <stringProp name="Header.value">same-site</stringProp>
+          </elementProp>
+          <elementProp name="Sec-Fetch-Mode" elementType="Header">
+            <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+            <stringProp name="Header.value">cors</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">Bearer ${token}</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">*</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+            <stringProp name="Header.value">POST</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+            <stringProp name="Header.value">authorization,content-type</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">payroll-dev-api.amalitech-dev.net</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path">/api/v1/graphql</stringProp>
+        <boolProp name="HTTPSampler.image_parser">true</boolProp>
+        <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <DNSCacheManager guiclass="DNSCachePanel" testclass="DNSCacheManager" testname="DNS Cache Manager" enabled="true">
+        <collectionProp name="DNSCacheManager.servers"/>
+        <boolProp name="DNSCacheManager.clearEachIteration">true</boolProp>
+        <boolProp name="DNSCacheManager.isCustomResolver">false</boolProp>
+      </DNSCacheManager>
+      <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="false">
+        <collectionProp name="AuthManager.auth_list"/>
+        <boolProp name="AuthManager.controlledByThreadGroup">false</boolProp>
+      </AuthManager>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+        <boolProp name="clearEachIteration">true</boolProp>
+        <boolProp name="useExpires">false</boolProp>
+        <boolProp name="CacheManager.controlledByThread">false</boolProp>
+      </CacheManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">2</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">0</stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Employee" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListActiveEmployees" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;ListActiveEmployees&quot;,&#xd;
+    &quot;variables&quot;: {&#xd;
+        &quot;page&quot;: 0,&#xd;
+        &quot;size&quot;: ${size}&#xd;
+    },&#xd;
+    &quot;query&quot;: &quot;query ListActiveEmployees($page: Int, $size: Int) {\n  listActiveEmployees(page: $page, size: $size) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      userId\n      customPayrollID\n      employeeId\n      firstName\n      middleName\n      lastName\n      displayName\n      workEmail\n      department\n      jobTitle\n      isManager\n      secondaryEmployment\n      organization\n      employeePosition\n      status\n      nonResident\n      basicSalary\n      taxRelief\n      backPay\n      tierThreePercentage\n      employeeType\n      employeeBankDetails {\n        id\n        userId\n        bankName\n        accountName\n        branchName\n        accountNumber\n        sortCode\n        employeeTierThreePercent\n        __typename\n      }\n      employeeIdentification {\n        id\n        userId\n        customSSN\n        customTIN\n        ssnitContributor\n        ghanaCard\n        nonResident\n        tierTwo\n        tierThree\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListEmployeesByName" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;ListEmployeesByName&quot;,&#xd;
+    &quot;variables&quot;: {&#xd;
+        &quot;searchName&quot;: &quot;Adam&quot;&#xd;
+    },&#xd;
+    &quot;query&quot;: &quot;query ListEmployeesByName($searchName: String!, $page: Int, $size: Int) {\n  listEmployeesByName(searchName: $searchName, page: $page, size: $size) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      userId\n      customPayrollID\n      employeeId\n      firstName\n      middleName\n      lastName\n      displayName\n      workEmail\n      department\n      jobTitle\n      isManager\n      secondaryEmployment\n      organization\n      employeePosition\n      status\n      nonResident\n      basicSalary\n      taxRelief\n      backPay\n      tierThreePercentage\n      employeeType\n      employeeBankDetails {\n        id\n        userId\n        bankName\n        accountName\n        branchName\n        accountNumber\n        sortCode\n        employeeTierThreePercent\n        __typename\n      }\n      employeeIdentification {\n        id\n        userId\n        customSSN\n        customTIN\n        ssnitContributor\n        ghanaCard\n        nonResident\n        tierTwo\n        tierThree\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Deductions Page" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListDeductions" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListDeductions&quot;,&quot;variables&quot;:{&quot;size&quot;:${size},&quot;page&quot;:0},&quot;query&quot;:&quot;query ListDeductions($size: Int, $page: Int) {\n  listDeductions(size: $size, page: $page) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      amountDue\n      monthlyDeduction\n      displayName\n      totalDeduction\n      date\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListDeductionsByName" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListDeductionsByName&quot;,&quot;variables&quot;:{&quot;searchByDisplayNameInput&quot;:&quot;constance&quot;,&quot;size&quot;:${size},&quot;page&quot;:0},&quot;query&quot;:&quot;query ListDeductionsByName($searchByDisplayNameInput: String!, $size: Int, $page: Int) {\n  listDeductionsByName(\n    searchByDisplayNameInput: $searchByDisplayNameInput\n    size: $size\n    page: $page\n  ) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      amountDue\n      monthlyDeduction\n      displayName\n      totalDeduction\n      date\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Bonus" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListBonuses" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListBonuses&quot;,&quot;variables&quot;:{&quot;page&quot;:0,&quot;size&quot;:${size}},&quot;query&quot;:&quot;query ListBonuses($size: Int, $page: Int) {\n  listBonuses(size: $size, page: $page) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      totalBonus\n      monthlyBonus\n      displayName\n      date\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListBonusByDisplayName" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListBonusByDisplayName&quot;,&quot;variables&quot;:{&quot;searchInput&quot;:&quot;ernest&quot;,&quot;page&quot;:0,&quot;size&quot;:${size}},&quot;query&quot;:&quot;query ListBonusByDisplayName($searchInput: String!, $page: Int, $size: Int) {\n  listBonusByDisplayName(\n    searchByDisplayNameInput: $searchInput\n    page: $page\n    size: $size\n  ) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      totalBonus\n      monthlyBonus\n      displayName\n      date\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Allowance" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListAllowances" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListAllowances&quot;,&quot;variables&quot;:{&quot;page&quot;:0,&quot;size&quot;:${size}},&quot;query&quot;:&quot;query ListAllowances($page: Int, $size: Int) {\n  listAllowances(page: $page, size: $size) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      taxable\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      totalAllowance\n      monthlyAllowance\n      displayName\n      date\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListAllowanceByDisplayName" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListAllowanceByDisplayName&quot;,&quot;variables&quot;:{&quot;searchInput&quot;:&quot;adam&quot;,&quot;size&quot;:${size},&quot;page&quot;:0},&quot;query&quot;:&quot;query ListAllowanceByDisplayName($searchInput: String!, $size: Int, $page: Int) {\n  listAllowanceByDisplayName(\n    searchByDisplayNameInput: $searchInput\n    size: $size\n    page: $page\n  ) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      id\n      taxable\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      totalAllowance\n      monthlyAllowance\n      displayName\n      date\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Gnerate Payroll" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GenerateNewPayrolls" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;operationName&quot;: &quot;GenerateNewPayrolls&quot;,&#xd;
+  &quot;variables&quot;: {&#xd;
+    &quot;user&quot;: &quot;JMeter&quot;&#xd;
+  },&#xd;
+  &quot;query&quot;: &quot;mutation GenerateNewPayrolls($user: String) {\n  generateNewPayrolls(user: $user) {\n    message\n    success\n    code\n    data {\n      payrollId\n      pid\n      month\n      year\n      cashEmolument\n      assessableIncome\n      totalReliefs\n      chargeableIncome\n      totalTaxPayableToGRA\n      employeeTierThreePre\n      employerTierThreePre\n      hazardous\n      optionCode\n      remarks\n      employeeTierThreeAfter\n      employerTierThreeAfter\n      accommodationElement\n      vehicleElement\n      nonCashBenefit\n      overtimeIncome\n      overtimeTax\n      severancePay\n      initialGross\n      totalAllowance\n      totalTaxableAllowance\n      totalNonTaxableAllowance\n      grossSalary\n      employeeSSF\n      tierOne\n      tierTwo\n      taxRelief\n      totalRelief\n      taxableIncome\n      paye\n      loanDeduction\n      totalDeduction\n      netSalary\n      employerSSF\n      employeeCostToCompany\n      bonusTotal\n      totalNetBonus\n      totalTaxOnBonus\n      payableNetSalary\n      excessBonus\n      initialBonus\n      backPay\n      date\n      studentLoanTrustFund\n      __typename\n    }\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Reports Page" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListPayrollsByMonthAndYear" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListPayrollsByMonthAndYear&quot;,&quot;variables&quot;:{&quot;page&quot;:0,&quot;size&quot;:${size},&quot;monthYear&quot;:{&quot;month&quot;:1,&quot;year&quot;:2024}},&quot;query&quot;:&quot;query ListPayrollsByMonthAndYear($page: Int, $size: Int, $monthYear: MonthYearInput!) {\n  listPayrollsByMonthAndYear(page: $page, size: $size, monthYear: $monthYear) {\n    data {\n      payrollId\n      pid\n      month\n      year\n      cashEmolument\n      assessableIncome\n      totalReliefs\n      chargeableIncome\n      totalTaxPayableToGRA\n      employeeTierThreePre\n      employerTierThreePre\n      hazardous\n      optionCode\n      remarks\n      employeeTierThreeAfter\n      employerTierThreeAfter\n      accommodationElement\n      vehicleElement\n      nonCashBenefit\n      overtimeIncome\n      overtimeTax\n      severancePay\n      initialGross\n      totalAllowance\n      totalTaxableAllowance\n      totalNonTaxableAllowance\n      grossSalary\n      employeeSSF\n      tierOne\n      tierTwo\n      taxRelief\n      totalRelief\n      taxableIncome\n      paye\n      loanDeduction\n      totalDeduction\n      netSalary\n      employerSSF\n      employeeCostToCompany\n      bonusTotal\n      totalNetBonus\n      totalTaxOnBonus\n      payableNetSalary\n      excessBonus\n      initialBonus\n      backPay\n      date\n      studentLoanTrustFund\n      deductions {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        monthlyDeduction\n        displayName\n        totalDeduction\n        date\n        amountDue\n        __typename\n      }\n      bonuses {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalBonus\n        monthlyBonus\n        displayName\n        date\n        __typename\n      }\n      allowances {\n        id\n        taxable\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalAllowance\n        monthlyAllowance\n        displayName\n        date\n        __typename\n      }\n      employee {\n        id\n        userId\n        customPayrollID\n        employeeId\n        firstName\n        middleName\n        lastName\n        displayName\n        workEmail\n        department\n        jobTitle\n        isManager\n        secondaryEmployment\n        organization\n        employeePosition\n        status\n        nonResident\n        basicSalary\n        taxRelief\n        backPay\n        tierThreePercentage\n        employeeType\n        employeeBankDetails {\n          id\n          userId\n          bankName\n          accountName\n          branchName\n          accountNumber\n          sortCode\n          employeeTierThreePercent\n          __typename\n        }\n        employeeIdentification {\n          id\n          userId\n          customSSN\n          customTIN\n          ssnitContributor\n          ghanaCard\n          nonResident\n          tierTwo\n          tierThree\n          __typename\n        }\n        __typename\n      }\n      teamPerformance {\n        id\n        sixMonthsSalary\n        tpBonus\n        excessTpBonus\n        tpTax\n        __typename\n      }\n      __typename\n    }\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetDepartmentPayrollColumnSummationsReport" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetDepartmentPayrollColumnSummationsReport&quot;,&quot;variables&quot;:{&quot;yearMonth&quot;:&quot;2024-01&quot;,&quot;startWith&quot;:&quot;&quot;},&quot;query&quot;:&quot;mutation GetDepartmentPayrollColumnSummationsReport($yearMonth: String, $startWith: String) {\n  getDepartmentPayrollColumnSummationsReport(\n    yearMonth: $yearMonth\n    startWith: $startWith\n  ) {\n    basicSalary\n    allowance\n    grossSalary\n    initialGross\n    employeeSSF\n    employerSSF\n    taxRelief\n    totalRelief\n    taxableIncome\n    bonusTax\n    paye\n    deductions\n    netSalary\n    bonus\n    payableNetSalary\n    totalLoanDeduction\n    backPay\n    excessBonus\n    initialBonus\n    employeeCostToCompany\n    studentLoanTrustFund\n    totalTaxOnBonus\n    cashEmolument\n    assessableIncome\n    totalReliefs\n    chargeableIncome\n    totalTaxPayableToGRA\n    bonusTotal\n    employeeTierThreePre\n    employerTierThreePre\n    employeeTierThreeAfter\n    employerTierThreeAfter\n    teamPerformance\n    excessTeamPerformance\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ExportPayrollByDate" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ExportPayrollByDate&quot;,&quot;variables&quot;:{&quot;page&quot;:0,&quot;size&quot;:20,&quot;searchName&quot;:&quot;Gloria&quot;,&quot;startWith&quot;:&quot;MG&quot;,&quot;yearMonth&quot;:&quot;2024-01&quot;},&quot;query&quot;:&quot;query ExportPayrollByDate($page: Int, $size: Int, $yearMonth: String, $searchName: String, $startWith: String) {\n  exportPayrollByDate(\n    page: $page\n    size: $size\n    yearMonth: $yearMonth\n    searchName: $searchName\n    startWith: $startWith\n  ) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      payrollId\n      pid\n      month\n      year\n      cashEmolument\n      assessableIncome\n      totalReliefs\n      chargeableIncome\n      totalTaxPayableToGRA\n      employeeTierThreePre\n      employerTierThreePre\n      hazardous\n      optionCode\n      remarks\n      employeeTierThreeAfter\n      employerTierThreeAfter\n      accommodationElement\n      vehicleElement\n      nonCashBenefit\n      overtimeIncome\n      overtimeTax\n      severancePay\n      initialGross\n      totalAllowance\n      totalTaxableAllowance\n      totalNonTaxableAllowance\n      grossSalary\n      employeeSSF\n      tierOne\n      tierTwo\n      taxRelief\n      totalRelief\n      taxableIncome\n      paye\n      loanDeduction\n      totalDeduction\n      netSalary\n      employerSSF\n      employeeCostToCompany\n      bonusTotal\n      totalNetBonus\n      totalTaxOnBonus\n      payableNetSalary\n      excessBonus\n      initialBonus\n      backPay\n      date\n      studentLoanTrustFund\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListAmalitechGhanaPayroll" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;ListAmalitechGhanaPayroll&quot;,&#xd;
+    &quot;variables&quot;: {&#xd;
+        &quot;page&quot;: 0,&#xd;
+        &quot;size&quot;: ${size},&#xd;
+        &quot;yearMonth&quot;: &quot;2024-04&quot;,&#xd;
+        &quot;searchName&quot;: &quot;&quot;&#xd;
+    },&#xd;
+    &quot;query&quot;: &quot;query ListAmalitechGhanaPayroll($page: Int, $size: Int, $searchName: String, $yearMonth: String) {\n  listAmalitechGhanaPayroll(\n    page: $page\n    size: $size\n    searchName: $searchName\n    yearMonth: $yearMonth\n  ) {\n    data {\n      payrollId\n      pid\n      month\n      year\n      basicSalary\n      cashEmolument\n      assessableIncome\n      totalReliefs\n      chargeableIncome\n      totalTaxPayableToGRA\n      employeeTierThreePre\n      employerTierThreePre\n      hazardous\n      optionCode\n      remarks\n      employeeTierThreeAfter\n      employerTierThreeAfter\n      accommodationElement\n      vehicleElement\n      nonCashBenefit\n      overtimeIncome\n      overtimeTax\n      severancePay\n      initialGross\n      totalAllowance\n      totalTaxableAllowance\n      totalNonTaxableAllowance\n      grossSalary\n      employeeSSF\n      tierOne\n      tierTwo\n      taxRelief\n      totalRelief\n      taxableIncome\n      paye\n      loanDeduction\n      totalDeduction\n      netSalary\n      employerSSF\n      employeeCostToCompany\n      bonusTotal\n      totalNetBonus\n      totalTaxOnBonus\n      payableNetSalary\n      excessBonus\n      initialBonus\n      backPay\n      date\n      studentLoanTrustFund\n      employee {\n        id\n        userId\n        customPayrollID\n        employeeId\n        firstName\n        middleName\n        lastName\n        displayName\n        workEmail\n        department\n        jobTitle\n        isManager\n        secondaryEmployment\n        organization\n        employeePosition\n        status\n        nonResident\n        basicSalary\n        taxRelief\n        backPay\n        tierThreePercentage\n        employeeType\n        employeeBankDetails {\n          id\n          userId\n          bankName\n          accountName\n          branchName\n          accountNumber\n          sortCode\n          employeeTierThreePercent\n          __typename\n        }\n        employeeIdentification {\n          id\n          userId\n          customSSN\n          customTIN\n          ssnitContributor\n          ghanaCard\n          nonResident\n          tierTwo\n          tierThree\n          __typename\n        }\n        __typename\n      }\n      teamPerformance {\n        id\n        sixMonthsSalary\n        tpBonus\n        excessTpBonus\n        tpTax\n        __typename\n      }\n      deductions {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        amountDue\n        monthlyDeduction\n        displayName\n        totalDeduction\n        date\n        __typename\n      }\n      bonuses {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalBonus\n        monthlyBonus\n        displayName\n        date\n        firstName\n        lastName\n        __typename\n      }\n      allowances {\n        id\n        taxable\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalAllowance\n        monthlyAllowance\n        displayName\n        date\n        __typename\n      }\n      __typename\n    }\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListAmalitechTrainingPayroll" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;ListAmalitechTrainingPayroll&quot;,&#xd;
+    &quot;variables&quot;: {&#xd;
+        &quot;page&quot;: 0,&#xd;
+        &quot;size&quot;: ${size},&#xd;
+        &quot;yearMonth&quot;: &quot;2024-04&quot;,&#xd;
+        &quot;searchName&quot;: &quot;&quot;&#xd;
+    },&#xd;
+    &quot;query&quot;: &quot;query ListAmalitechTrainingPayroll($page: Int, $size: Int, $searchName: String, $yearMonth: String) {\n  listAmalitechTrainingPayroll(\n    page: $page\n    size: $size\n    searchName: $searchName\n    yearMonth: $yearMonth\n  ) {\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    data {\n      payrollId\n      pid\n      month\n      year\n      basicSalary\n      cashEmolument\n      assessableIncome\n      totalReliefs\n      chargeableIncome\n      totalTaxPayableToGRA\n      employeeTierThreePre\n      employerTierThreePre\n      hazardous\n      optionCode\n      remarks\n      employeeTierThreeAfter\n      employerTierThreeAfter\n      accommodationElement\n      vehicleElement\n      nonCashBenefit\n      overtimeIncome\n      overtimeTax\n      severancePay\n      initialGross\n      totalAllowance\n      totalTaxableAllowance\n      totalNonTaxableAllowance\n      grossSalary\n      employeeSSF\n      tierOne\n      tierTwo\n      taxRelief\n      totalRelief\n      taxableIncome\n      paye\n      loanDeduction\n      totalDeduction\n      netSalary\n      employerSSF\n      employeeCostToCompany\n      bonusTotal\n      totalNetBonus\n      totalTaxOnBonus\n      payableNetSalary\n      excessBonus\n      initialBonus\n      backPay\n      date\n      studentLoanTrustFund\n      deductions {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        amountDue\n        monthlyDeduction\n        displayName\n        totalDeduction\n        date\n        __typename\n      }\n      bonuses {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalBonus\n        monthlyBonus\n        displayName\n        date\n        firstName\n        lastName\n        __typename\n      }\n      allowances {\n        id\n        taxable\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalAllowance\n        monthlyAllowance\n        displayName\n        date\n        __typename\n      }\n      teamPerformance {\n        id\n        sixMonthsSalary\n        tpBonus\n        excessTpBonus\n        tpTax\n        __typename\n      }\n      employee {\n        id\n        userId\n        customPayrollID\n        employeeId\n        firstName\n        middleName\n        lastName\n        displayName\n        workEmail\n        department\n        jobTitle\n        isManager\n        secondaryEmployment\n        organization\n        employeePosition\n        status\n        nonResident\n        basicSalary\n        taxRelief\n        backPay\n        tierThreePercentage\n        employeeType\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetJVReport" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;GetJVReport&quot;,&#xd;
+    &quot;variables&quot;: {},&#xd;
+    &quot;query&quot;: &quot;query GetJVReport {\n  getJVReport {\n    tierThree\n    studentLoanDeduction\n    creditTotals\n    netSalary\n    loanDeduction\n    socialSecurityFund\n    socialSecurity\n    incomeTax\n    grossSalary\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Payroll Payslip Page" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListPayrollsByMonthAndYear" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListPayrollsByMonthAndYear&quot;,&quot;variables&quot;:{&quot;page&quot;:0,&quot;size&quot;:20,&quot;monthYear&quot;:{&quot;month&quot;:12,&quot;year&quot;:2023}},&quot;query&quot;:&quot;query ListPayrollsByMonthAndYear($page: Int, $size: Int, $monthYear: MonthYearInput!) {\n  listPayrollsByMonthAndYear(page: $page, size: $size, monthYear: $monthYear) {\n    data {\n      payrollId\n      pid\n      month\n      year\n      cashEmolument\n      assessableIncome\n      totalReliefs\n      chargeableIncome\n      totalTaxPayableToGRA\n      employeeTierThreePre\n      employerTierThreePre\n      hazardous\n      optionCode\n      remarks\n      employeeTierThreeAfter\n      employerTierThreeAfter\n      accommodationElement\n      vehicleElement\n      nonCashBenefit\n      overtimeIncome\n      overtimeTax\n      severancePay\n      initialGross\n      totalAllowance\n      totalTaxableAllowance\n      totalNonTaxableAllowance\n      grossSalary\n      employeeSSF\n      tierOne\n      tierTwo\n      taxRelief\n      totalRelief\n      taxableIncome\n      paye\n      loanDeduction\n      totalDeduction\n      netSalary\n      employerSSF\n      employeeCostToCompany\n      bonusTotal\n      totalNetBonus\n      totalTaxOnBonus\n      payableNetSalary\n      excessBonus\n      initialBonus\n      backPay\n      date\n      studentLoanTrustFund\n      deductions {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        monthlyDeduction\n        displayName\n        totalDeduction\n        date\n        amountDue\n        __typename\n      }\n      bonuses {\n        id\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalBonus\n        monthlyBonus\n        displayName\n        date\n        __typename\n      }\n      allowances {\n        id\n        taxable\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalAllowance\n        monthlyAllowance\n        displayName\n        date\n        __typename\n      }\n      employee {\n        id\n        userId\n        customPayrollID\n        employeeId\n        firstName\n        middleName\n        lastName\n        displayName\n        workEmail\n        department\n        jobTitle\n        isManager\n        secondaryEmployment\n        organization\n        employeePosition\n        status\n        nonResident\n        basicSalary\n        taxRelief\n        backPay\n        tierThreePercentage\n        employeeType\n        employeeBankDetails {\n          id\n          userId\n          bankName\n          accountName\n          branchName\n          accountNumber\n          sortCode\n          employeeTierThreePercent\n          __typename\n        }\n        employeeIdentification {\n          id\n          userId\n          customSSN\n          customTIN\n          ssnitContributor\n          ghanaCard\n          nonResident\n          tierTwo\n          tierThree\n          __typename\n        }\n        __typename\n      }\n      teamPerformance {\n        id\n        sixMonthsSalary\n        tpBonus\n        excessTpBonus\n        tpTax\n        __typename\n      }\n      __typename\n    }\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetSortedPayrollReportForEmployee" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetSortedPayrollReportForEmployee&quot;,&quot;variables&quot;:{&quot;page&quot;:0,&quot;size&quot;:20000,&quot;sortInput&quot;:{&quot;employeeId&quot;:&quot;TRN-1026&quot;,&quot;endYearMonth&quot;:&quot;2024-01&quot;,&quot;startYearMonth&quot;:&quot;2023-05&quot;}},&quot;query&quot;:&quot;query GetSortedPayrollReportForEmployee($page: Int, $size: Int, $sortInput: SortPayrollByMonthYearInput) {\n  getSortedPayrollReportForEmployee(\n    page: $page\n    size: $size\n    sortInput: $sortInput\n  ) {\n    payrollId\n    pid\n    month\n    year\n    cashEmolument\n    assessableIncome\n    totalReliefs\n    chargeableIncome\n    totalTaxPayableToGRA\n    employeeTierThreePre\n    employerTierThreePre\n    hazardous\n    optionCode\n    remarks\n    employeeTierThreeAfter\n    employerTierThreeAfter\n    accommodationElement\n    vehicleElement\n    nonCashBenefit\n    overtimeIncome\n    overtimeTax\n    severancePay\n    initialGross\n    totalAllowance\n    totalTaxableAllowance\n    totalNonTaxableAllowance\n    grossSalary\n    employeeSSF\n    tierOne\n    tierTwo\n    taxRelief\n    totalRelief\n    taxableIncome\n    paye\n    loanDeduction\n    totalDeduction\n    netSalary\n    employerSSF\n    employeeCostToCompany\n    bonusTotal\n    totalNetBonus\n    totalTaxOnBonus\n    payableNetSalary\n    excessBonus\n    initialBonus\n    backPay\n    date\n    studentLoanTrustFund\n    deductions {\n      id\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      monthlyDeduction\n      displayName\n      totalDeduction\n      date\n      amountDue\n      __typename\n    }\n    bonuses {\n      id\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      totalBonus\n      monthlyBonus\n      displayName\n      date\n      __typename\n    }\n    allowances {\n      id\n      taxable\n      employeeId\n      employeeNumber\n      description\n      startDate\n      endDate\n      totalAllowance\n      monthlyAllowance\n      displayName\n      date\n      __typename\n    }\n    employee {\n      id\n      userId\n      customPayrollID\n      employeeId\n      firstName\n      middleName\n      lastName\n      displayName\n      workEmail\n      department\n      jobTitle\n      isManager\n      secondaryEmployment\n      organization\n      employeePosition\n      status\n      nonResident\n      basicSalary\n      taxRelief\n      backPay\n      tierThreePercentage\n      employeeType\n      employeeBankDetails {\n        id\n        userId\n        bankName\n        accountName\n        branchName\n        accountNumber\n        sortCode\n        employeeTierThreePercent\n        __typename\n      }\n      employeeIdentification {\n        id\n        userId\n        customSSN\n        customTIN\n        ssnitContributor\n        ghanaCard\n        nonResident\n        tierTwo\n        tierThree\n        __typename\n      }\n      __typename\n    }\n    teamPerformance {\n      id\n      sixMonthsSalary\n      tpBonus\n      excessTpBonus\n      tpTax\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Summations" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListCurrentNspPayrollColumnSummations" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;ListCurrentNspPayrollColumnSummations&quot;,&#xd;
+    &quot;variables&quot;: {&#xd;
+        &quot;yearMonth&quot;: &quot;2024-04&quot;&#xd;
+    },&#xd;
+    &quot;query&quot;: &quot;query ListCurrentNspPayrollColumnSummations($yearMonth: String) {\n  getCurrentNspPayrollColumnSummations(yearMonth: $yearMonth) {\n    monthlyNspAllowance\n    monthlyAmalitechAllowance\n    monthlyAllowancePayable\n    monthlyCharge\n    yearlyNspAllowance\n    yearlyNspAllowanceCharge\n    monthlyAllowanceTax\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetNspJVReportByDepartment" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;operationName&quot;: &quot;GetNspJVReportByDepartment&quot;,&#xd;
+    &quot;variables&quot;: {&#xd;
+        &quot;yearMonth&quot;: &quot;2024-01&quot;&#xd;
+    },&#xd;
+    &quot;query&quot;: &quot;mutation GetNspJVReportByDepartment($yearMonth: String) {\n  getNspJVReportByDepartment(yearMonth: $yearMonth) {\n    grossAllowance\n    nspMonthlyCharge\n    netPayrollControl\n    debitTotal\n    creditTotal\n    __typename\n  }\n}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetTierOneSummationReport" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetTierOneSummationReport&quot;,&quot;variables&quot;:{&quot;yearMonth&quot;:&quot;2024-01&quot;},&quot;query&quot;:&quot;mutation GetTierOneSummationReport($yearMonth: String) {\n  getTierOneSummationReport(yearMonth: $yearMonth) {\n    sumBasicSalary\n    sumPercentage\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetTierTwoSummationReport" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetTierTwoSummationReport&quot;,&quot;variables&quot;:{&quot;yearMonth&quot;:&quot;2024-01&quot;},&quot;query&quot;:&quot;mutation GetTierTwoSummationReport($yearMonth: String) {\n  getTierTwoSummationReport(yearMonth: $yearMonth) {\n    sumBasicSalary\n    sumPercentage\n    __typename\n  }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/graphql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Authorize &amp; Approve Payroll Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="Sec-Fetch-Dest" elementType="Header">
+              <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+              <stringProp name="Header.value">empty</stringProp>
+            </elementProp>
+            <elementProp name="Sec-Fetch-Site" elementType="Header">
+              <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+              <stringProp name="Header.value">same-site</stringProp>
+            </elementProp>
+            <elementProp name="Sec-Fetch-Mode" elementType="Header">
+              <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+              <stringProp name="Header.value">cors</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${AUTH_TOKEN}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+              <stringProp name="Header.value">POST</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+              <stringProp name="Header.value">authorization,content-type</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">payroll-dev-api.amalitech-dev.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/graphql</stringProp>
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Authorize Payroll" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GraphQL HTTP Request" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument" enabled="true">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListByEmployeeName&quot;,&quot;variables&quot;:{
+	&quot;statusInput&quot;: { 
+		&quot;approve&quot;: true, 
+		&quot;approvedBy&quot;: &quot;Jmeter&quot;, 
+		&quot;yearMonth&quot;: &quot;2024-01&quot; 
+	}
+},&quot;query&quot;:&quot;mutation AuthorizePayroll($statusInput: AuthorizePayroll) {\n    authorizePayroll(\n        statusInput: $statusInput\n    ) {\n        success\n        code\n        message\n        data {\n            psid\n            authorized\n            approved\n            generated\n            authorizedBy\n            approvedBy\n            generatedBy\n            generatedDate\n            authorizedDate\n            approvedDate\n            date\n        }\n    }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="GraphQLHTTPSampler.operationName">ListByEmployeeName</stringProp>
+            <stringProp name="GraphQLHTTPSampler.query">mutation AuthorizePayroll($statusInput: AuthorizePayroll) {
+    authorizePayroll(
+        statusInput: $statusInput
+    ) {
+        success
+        code
+        message
+        data {
+            psid
+            authorized
+            approved
+            generated
+            authorizedBy
+            approvedBy
+            generatedBy
+            generatedDate
+            authorizedDate
+            approvedDate
+            date
+        }
+    }
+}
+</stringProp>
+            <stringProp name="GraphQLHTTPSampler.variables">{
+	&quot;statusInput&quot;: { 
+		&quot;approve&quot;: true, 
+		&quot;approvedBy&quot;: &quot;Jmeter&quot;, 
+		&quot;yearMonth&quot;: &quot;2024-01&quot; 
+	}
+}
+</stringProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Approve Payroll" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GraphQL HTTP Request" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument" enabled="true">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListByEmployeeName&quot;,&quot;variables&quot;:{
+   &quot;statusInput&quot;: { 
+        &quot;approve&quot;: true, 
+        &quot;approvedBy&quot;: &quot;JMeter&quot;, 
+        &quot;yearMonth&quot;: &quot;2023-12&quot;
+    }
+},&quot;query&quot;:&quot;mutation ApprovePayrolls($statusInput: ApprovePayrollInput) {\n    approvePayroll(\n        statusInput: $statusInput\n    ) {\n        success\n        code\n        message\n    }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${GRAPH_SERVER}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="GraphQLHTTPSampler.operationName">ListByEmployeeName</stringProp>
+            <stringProp name="GraphQLHTTPSampler.query">mutation ApprovePayrolls($statusInput: ApprovePayrollInput) {
+    approvePayroll(
+        statusInput: $statusInput
+    ) {
+        success
+        code
+        message
+    }
+}
+</stringProp>
+            <stringProp name="GraphQLHTTPSampler.variables">{
+   &quot;statusInput&quot;: { 
+        &quot;approve&quot;: true, 
+        &quot;approvedBy&quot;: &quot;JMeter&quot;, 
+        &quot;yearMonth&quot;: &quot;2023-12&quot;
+    }
+}</stringProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Employees Payslip" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">300</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">100</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="ListCurrentNspPayroll" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument" enabled="true">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetEmployeePayslip&quot;,&quot;variables&quot;:{
+	&quot;downloadPayslipInput&quot;: {
+		&quot;employeeID&quot;: &quot;SC-TKD-0827&quot;, 
+		&quot;month&quot;: 12, 
+		&quot;year&quot;: 2023
+	}
+},&quot;query&quot;:&quot;{\n    \&quot;operationName\&quot;: \&quot;ListCurrentNspPayroll\&quot;,\n    \&quot;variables\&quot;: {\n        \&quot;page\&quot;: 0,\n        \&quot;yearMonth\&quot;: \&quot;2024-04\&quot;,\n        \&quot;searchName\&quot;: \&quot;\&quot;,\n        \&quot;size\&quot;: ${size}\n    },\n    \&quot;query\&quot;: \&quot;query ListCurrentNspPayroll($page: Int, $size: Int, $searchName: String, $yearMonth: String) {\\n  listCurrentNspPayroll(\\n    page: $page\\n    size: $size\\n    searchName: $searchName\\n    yearMonth: $yearMonth\\n  ) {\\n    data {\\n      payrollId\\n      pid\\n      month\\n      year\\n      monthlyNspAllowance\\n      monthlyAmalitechAllowance\\n      monthlyAllowancePayable\\n      monthlyCharge\\n      yearlyNspAllowance\\n      yearlyNspAllowanceCharge\\n      monthlyAllowanceTax\\n      allowances {\\n        id\\n        taxable\\n        employeeId\\n        employeeNumber\\n        description\\n        startDate\\n        endDate\\n        totalAllowance\\n        monthlyAllowance\\n        displayName\\n        date\\n        __typename\\n      }\\n      employee {\\n        id\\n        userId\\n        customPayrollID\\n        employeeId\\n        firstName\\n        middleName\\n        lastName\\n        displayName\\n        workEmail\\n        department\\n        jobTitle\\n        isManager\\n        secondaryEmployment\\n        organization\\n        employeePosition\\n        status\\n        nonResident\\n        basicSalary\\n        taxRelief\\n        backPay\\n        tierThreePercentage\\n        employeeType\\n        employeeBankDetails {\\n          id\\n          userId\\n          bankName\\n          accountName\\n          branchName\\n          accountNumber\\n          sortCode\\n          employeeTierThreePercent\\n          __typename\\n        }\\n        employeeIdentification {\\n          id\\n          userId\\n          customSSN\\n          customTIN\\n          ssnitContributor\\n          ghanaCard\\n          nonResident\\n          tierTwo\\n          tierThree\\n          __typename\\n        }\\n        __typename\\n      }\\n      __typename\\n    }\\n    pageable {\\n      size\\n      number\\n      totalPages\\n      totalElement\\n      empty\\n      first\\n      last\\n      sort\\n      __typename\\n    }\\n    __typename\\n  }\\n}\&quot;\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="GraphQLHTTPSampler.operationName">GetEmployeePayslip</stringProp>
+            <stringProp name="GraphQLHTTPSampler.query">{
+    &quot;operationName&quot;: &quot;ListCurrentNspPayroll&quot;,
+    &quot;variables&quot;: {
+        &quot;page&quot;: 0,
+        &quot;yearMonth&quot;: &quot;2024-04&quot;,
+        &quot;searchName&quot;: &quot;&quot;,
+        &quot;size&quot;: ${size}
+    },
+    &quot;query&quot;: &quot;query ListCurrentNspPayroll($page: Int, $size: Int, $searchName: String, $yearMonth: String) {\n  listCurrentNspPayroll(\n    page: $page\n    size: $size\n    searchName: $searchName\n    yearMonth: $yearMonth\n  ) {\n    data {\n      payrollId\n      pid\n      month\n      year\n      monthlyNspAllowance\n      monthlyAmalitechAllowance\n      monthlyAllowancePayable\n      monthlyCharge\n      yearlyNspAllowance\n      yearlyNspAllowanceCharge\n      monthlyAllowanceTax\n      allowances {\n        id\n        taxable\n        employeeId\n        employeeNumber\n        description\n        startDate\n        endDate\n        totalAllowance\n        monthlyAllowance\n        displayName\n        date\n        __typename\n      }\n      employee {\n        id\n        userId\n        customPayrollID\n        employeeId\n        firstName\n        middleName\n        lastName\n        displayName\n        workEmail\n        department\n        jobTitle\n        isManager\n        secondaryEmployment\n        organization\n        employeePosition\n        status\n        nonResident\n        basicSalary\n        taxRelief\n        backPay\n        tierThreePercentage\n        employeeType\n        employeeBankDetails {\n          id\n          userId\n          bankName\n          accountName\n          branchName\n          accountNumber\n          sortCode\n          employeeTierThreePercent\n          __typename\n        }\n        employeeIdentification {\n          id\n          userId\n          customSSN\n          customTIN\n          ssnitContributor\n          ghanaCard\n          nonResident\n          tierTwo\n          tierThree\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    pageable {\n      size\n      number\n      totalPages\n      totalElement\n      empty\n      first\n      last\n      sort\n      __typename\n    }\n    __typename\n  }\n}&quot;
+}</stringProp>
+            <stringProp name="GraphQLHTTPSampler.variables">{
+	&quot;downloadPayslipInput&quot;: {
+		&quot;employeeID&quot;: &quot;SC-TKD-0827&quot;, 
+		&quot;month&quot;: 12, 
+		&quot;year&quot;: 2023
+	}
+}</stringProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Get Employee Payslip" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument" enabled="true">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetEmployeePayslip&quot;,&quot;variables&quot;:{
+	&quot;downloadPayslipInput&quot;: {
+		&quot;employeeID&quot;: &quot;SC-TKD-0827&quot;, 
+		&quot;month&quot;: 12, 
+		&quot;year&quot;: 2023
+	}
+},&quot;query&quot;:&quot;mutation GetEmployeePayslip($downloadPayslipInput: DownloadPayslipInput) {\n    getEmployeePayslip(\n        downloadPayslipInput: $downloadPayslipInput\n    ) {\n        message\n        success\n        code\n        data {\n            payrollId\n            pid\n            month\n            year\n            cashEmolument\n            assessableIncome\n            totalReliefs\n            chargeableIncome\n            totalTaxPayableToGRA\n            employeeTierThreePre\n            employerTierThreePre\n            hazardous\n            optionCode\n            remarks\n            employeeTierThreeAfter\n            employerTierThreeAfter\n            accommodationElement\n            vehicleElement\n            nonCashBenefit\n            overtimeIncome\n            overtimeTax\n            severancePay\n            initialGross\n            totalAllowance\n            totalTaxableAllowance\n            totalNonTaxableAllowance\n            grossSalary\n            employeeSSF\n            tierOne\n            tierTwo\n            taxRelief\n            totalRelief\n            taxableIncome\n            paye\n            loanDeduction\n            totalDeduction\n            netSalary\n            employerSSF\n            employeeCostToCompany\n            bonusTotal\n            totalNetBonus\n            totalTaxOnBonus\n            payableNetSalary\n            excessBonus\n            initialBonus\n            backPay\n            date\n            studentLoanTrustFund\n        }\n    }\n}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="GraphQLHTTPSampler.operationName">GetEmployeePayslip</stringProp>
+            <stringProp name="GraphQLHTTPSampler.query">mutation GetEmployeePayslip($downloadPayslipInput: DownloadPayslipInput) {
+    getEmployeePayslip(
+        downloadPayslipInput: $downloadPayslipInput
+    ) {
+        message
+        success
+        code
+        data {
+            payrollId
+            pid
+            month
+            year
+            cashEmolument
+            assessableIncome
+            totalReliefs
+            chargeableIncome
+            totalTaxPayableToGRA
+            employeeTierThreePre
+            employerTierThreePre
+            hazardous
+            optionCode
+            remarks
+            employeeTierThreeAfter
+            employerTierThreeAfter
+            accommodationElement
+            vehicleElement
+            nonCashBenefit
+            overtimeIncome
+            overtimeTax
+            severancePay
+            initialGross
+            totalAllowance
+            totalTaxableAllowance
+            totalNonTaxableAllowance
+            grossSalary
+            employeeSSF
+            tierOne
+            tierTwo
+            taxRelief
+            totalRelief
+            taxableIncome
+            paye
+            loanDeduction
+            totalDeduction
+            netSalary
+            employerSSF
+            employeeCostToCompany
+            bonusTotal
+            totalNetBonus
+            totalTaxOnBonus
+            payableNetSalary
+            excessBonus
+            initialBonus
+            backPay
+            date
+            studentLoanTrustFund
+        }
+    }
+}
+</stringProp>
+            <stringProp name="GraphQLHTTPSampler.variables">{
+	&quot;downloadPayslipInput&quot;: {
+		&quot;employeeID&quot;: &quot;SC-TKD-0827&quot;, 
+		&quot;month&quot;: 12, 
+		&quot;year&quot;: 2023
+	}
+}</stringProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
