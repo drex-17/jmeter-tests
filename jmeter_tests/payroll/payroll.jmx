@@ -129,7 +129,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">2</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration">0</stringProp>
@@ -214,6 +214,7 @@
         </TransactionController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListDeductions" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
@@ -223,7 +224,6 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -240,6 +240,7 @@
           </HTTPSamplerProxy>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ListDeductionsByName" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
@@ -249,7 +250,6 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -791,7 +791,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -799,78 +799,21 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
-          <collectionProp name="HeaderManager.headers">
-            <elementProp name="User-Agent" elementType="Header">
-              <stringProp name="Header.name">User-Agent</stringProp>
-              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</stringProp>
-            </elementProp>
-            <elementProp name="Sec-Fetch-Dest" elementType="Header">
-              <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
-              <stringProp name="Header.value">empty</stringProp>
-            </elementProp>
-            <elementProp name="Sec-Fetch-Site" elementType="Header">
-              <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
-              <stringProp name="Header.value">same-site</stringProp>
-            </elementProp>
-            <elementProp name="Sec-Fetch-Mode" elementType="Header">
-              <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
-              <stringProp name="Header.value">cors</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer ${AUTH_TOKEN}</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Content-Type</stringProp>
-              <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Accept</stringProp>
-              <stringProp name="Header.value">*</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
-              <stringProp name="Header.value">POST</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
-              <stringProp name="Header.value">authorization,content-type</stringProp>
-            </elementProp>
-          </collectionProp>
-        </HeaderManager>
-        <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">payroll-dev-api.amalitech-dev.net</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/graphql</stringProp>
-          <boolProp name="HTTPSampler.image_parser">true</boolProp>
-          <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
-          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </ConfigTestElement>
-        <hashTree/>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Authorize Payroll" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GraphQL HTTP Request" enabled="true">
+          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="AuthorizePayroll" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument" enabled="true">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListByEmployeeName&quot;,&quot;variables&quot;:{
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;AuthorizePayroll&quot;,&quot;variables&quot;:{
 	&quot;statusInput&quot;: { 
 		&quot;approve&quot;: true, 
 		&quot;approvedBy&quot;: &quot;Jmeter&quot;, 
-		&quot;yearMonth&quot;: &quot;2024-01&quot; 
+		&quot;yearMonth&quot;: &quot;2024-03&quot; 
 	}
 },&quot;query&quot;:&quot;mutation AuthorizePayroll($statusInput: AuthorizePayroll) {\n    authorizePayroll(\n        statusInput: $statusInput\n    ) {\n        success\n        code\n        message\n        data {\n            psid\n            authorized\n            approved\n            generated\n            authorizedBy\n            approvedBy\n            generatedBy\n            generatedDate\n            authorizedDate\n            approvedDate\n            date\n        }\n    }\n}&quot;}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
@@ -888,7 +831,7 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="GraphQLHTTPSampler.operationName">ListByEmployeeName</stringProp>
+            <stringProp name="GraphQLHTTPSampler.operationName">AuthorizePayroll</stringProp>
             <stringProp name="GraphQLHTTPSampler.query">mutation AuthorizePayroll($statusInput: AuthorizePayroll) {
     authorizePayroll(
         statusInput: $statusInput
@@ -916,7 +859,7 @@
 	&quot;statusInput&quot;: { 
 		&quot;approve&quot;: true, 
 		&quot;approvedBy&quot;: &quot;Jmeter&quot;, 
-		&quot;yearMonth&quot;: &quot;2024-01&quot; 
+		&quot;yearMonth&quot;: &quot;2024-03&quot; 
 	}
 }
 </stringProp>
@@ -932,12 +875,12 @@
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GraphQL HTTP Request" enabled="true">
+          <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="ApprovePayrolls" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument" enabled="true">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ListByEmployeeName&quot;,&quot;variables&quot;:{
+                  <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;ApprovePayrolls&quot;,&quot;variables&quot;:{
    &quot;statusInput&quot;: { 
         &quot;approve&quot;: true, 
         &quot;approvedBy&quot;: &quot;JMeter&quot;, 
@@ -959,7 +902,7 @@
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="GraphQLHTTPSampler.operationName">ListByEmployeeName</stringProp>
+            <stringProp name="GraphQLHTTPSampler.operationName">ApprovePayrolls</stringProp>
             <stringProp name="GraphQLHTTPSampler.query">mutation ApprovePayrolls($statusInput: ApprovePayrollInput) {
     approvePayroll(
         statusInput: $statusInput
